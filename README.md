@@ -13,9 +13,11 @@ Note: These instructions currently assume you are using the default media direct
 
 #### IMPORTANT: Always close Anki before installing/updating! If you don't, you run the risk of corrupting your database! 
 
+Start by navigating to the folder of the downloaded/cloned repository. Then navigate to the `anki` folder.
+
 ### Linux
 
-Navigate to the repository directory and run `install.sh`.
+Run `install.sh`.
 
 ### Windows
 
