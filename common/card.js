@@ -70,9 +70,9 @@ function parseFuriUsingSquareBrackets(str, wordDelimiter) {
         var element = $("<li></li>");
         element.append(kanjiElement).append(furiElement);
         elements.append(element);
-   }
+    }
     elements.attr("search", searchText);
-    return formattedElements;
+    return elements;
 }
 
 $(".parse-furi").each(
