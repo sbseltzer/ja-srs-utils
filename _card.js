@@ -1,20 +1,47 @@
 function isPunctuation(str, atIndex) {
+    var c = str[atIndex];
     return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION);
 }
 function isHiragana(str, atIndex) {
+    var c = str[atIndex];
     return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.HIRAGANA);
 }
+
 function isKatakana(str, atIndex) {
+    var c = str[atIndex];
     return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.KATAKANA);
 }
 function isKanji(str, atIndex) {
+    var c = str[atIndex];
     return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A) ||
            (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
 }
-function isFWRomanOrFWKatakana(str, atIndex) {}
+// function isFWRomanOrFWKatakana(str, atIndex) {}
 
-function getStartIndexOfKanjiAt(str, atIndex) {}
-function getEndIndexOfKanjiAt(str, atIndex) {}
+function getStartIndexOfKanjiAt(str, atIndex) {
+    if  (!isKanji(str[atIndex])) {
+        return -1;
+    }
+    while (atIndex > 0) {
+        if (!isKanji(str, atIndex)) {
+            return atIndex + 1;
+        }
+        atIndex--;
+    }
+    return 0;
+}
+function getEndIndexOfKanjiAt(str, atIndex) {
+    if  (!isKanji(str[atIndex])) {
+        return -1;
+    }
+    while (atIndex < str.length) {
+        if (!isKanji(str, atIndex)) {
+            return atIndex - 1;
+        }
+        atIndex++;
+    }
+    return str.length - 1;
+}
 
 function getIndexOfNextOpeningBrace(str, atIndex) {}
 function getIndexOfNextClosingBrace(str, atIndex) {}
