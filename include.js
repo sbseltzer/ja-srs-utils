@@ -1,10 +1,10 @@
 var fragment = document.createDocumentFragment();
 var jqScript = document.createElement("script");
 jqScript.type = "text/javascript";
-jqScript.src = "_anki-utils/_jquery.js";
+jqScript.src = "_anki-utils/_jquery-3.1.1.slim.min.js";
 var cardScript = document.createElement("script");
 cardScript.type = "text/javascript";
-cardScript.src = "_anki-utils/card.js";
+cardScript.src = "_anki-utils/_card.js";
 var cardStyle = document.createElement("link");
 cardStyle.rel = "stylesheet";
 cardStyle.href = "_anki-utils/_card.css";
