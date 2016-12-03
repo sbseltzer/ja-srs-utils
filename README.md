@@ -7,9 +7,9 @@ I've started this with Anki in mind, but I hope to port this to other SRS system
 
 Start by cloning or downloading the repository.
 
-Note: These instructions currently assume you are using the default media directory.
-
 ## Anki Installation
+
+Note: These instructions currently assume you are using the default media directory.
 
 ### Linux
 
