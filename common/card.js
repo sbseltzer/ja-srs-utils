@@ -76,39 +76,38 @@ function parseFuriUsingSquareBrackets(str, wordDelimiter) {
 }
 
 $(".parse-furi").each(
-    function(e) {
-        e = $(e);
-        e.html(parseFuriUsingSquareBrackets(e.text()));
+    function() {
+        $(this).html(parseFuriUsingSquareBrackets(e.text()));
     });
 
 $(".rtk-link").each(
-    function(e) {
-        e = $(e);
+    function() {
+        var e = $(this);
         var rtkLink = "http://kanji.koohi.com/study/kanji/" + e.attr("kanji");
         e.wrap("<a href='" + rtkLink + "'></a>");
     });
 
 $(".jisho-link").each(
-		function(e) {
-		    e = $(e);
+		function() {
+		    var e = $(this);
 		    var jishoLink = "http://jisho.org/search/" + e.attr("search");
 		    e.wrap("<a href='" + jishoLink + "'></a>");
 		});
 
 function cycleFont()
 {
-		var f = $(this);
-		var prevfont = Number(f.attr("font_index")) % fontlist.length;
-		var curfont = (Number(f.attr("font_index")) + 1) % fontlist.length;
-		f.attr("font_index", curfont);
-		f.removeClass(fontlist[prevfont]);
-		f.addClass(fontlist[curfont]);
+		var e = $(this);
+		var prevfont = Number(e.attr("font_index")) % fontlist.length;
+		var curfont = (Number(e.attr("font_index")) + 1) % fontlist.length;
+		e.attr("font_index", curfont);
+		e.removeClass(fontlist[prevfont]);
+		e.addClass(fontlist[curfont]);
 }
 
 $(".cycle-font").each(
-		function(e)
+		function()
 		{
-				e = $(e);
+				var e = $(this);
 				var fontlist = e.attr("font_classes");
 				if (fontlist != undefined) {
 						fontlist = fontlist.split(","); 
