@@ -70,15 +70,7 @@ function parseFuriUsingSquareBrackets(str, wordDelimiter) {
         var element = $("<li></li>");
         element.append(kanjiElement).append(furiElement);
         elements.append(element);
-        // if(isKanji(str, index)) {
-        //     kanjiStart = index;
-        // } else {
-        //     kanjiStart = getStartIndexOfNextKanji(str, index);
-        //     formattedElements.append($("<li class='unlinked'>" + str.substring(index, kanjiStart - 1) + "</li>"));
-        // }
-        // kanjiEnd = getEndIndexOfKanjiAt(str, kanjiStart);
-        // formattedElements.append($("<li class='unlinked'>" + str.substring(kanjiStart, kanjiEnd) + "</li>"));
-    }
+   }
     elements.attr("search", searchText);
     return formattedElements;
 }
