@@ -1,4 +1,5 @@
 @font-face { font-family: KanjiStrokeOrders; src: url('_KanjiStrokeOrders.ttf'); }
+.strokes { font-family: KanjiStrokeOrders; }
 
 *,*:before,*:after {
 	box-sizing:border-box;

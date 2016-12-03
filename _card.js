@@ -95,23 +95,27 @@ $(".jisho-link").each(
 		    e.wrap("<a href='" + jishoLink + "'></a>");
 		});
 
+function cycleFont()
+{
+		var f = $(this);
+		var prevfont = Number(f.attr("font_index")) % fontlist.length;
+		var curfont = (Number(f.attr("font_index")) + 1) % fontlist.length;
+		f.attr("font_index", curfont);
+		f.removeClass(fontlist[prevfont]);
+		f.addClass(fontlist[curfont]);
+}
+
 $(".cycle-font").each(
 		function(e)
 		{
 				e = $(e);
-				var fontlist = e.attr("fonts");
+				var fontlist = e.attr("font_classes");
 				if (fontlist != undefined) {
 						fontlist = fontlist.split(","); 
 				} else {
 						return;
 				}
 				e.attr("curfont", 0);
-				e.onclick(
-						function(f)
-						{
-								var f = $(f);
-								var curfont = (Number(f.attr("curfont")) + 1) % fontlist.length;
-								f.attr("curfont", curfont);
-								f.css("font-family", fontlist[curfont]);
-						} );
+        cycleFont(e);
+				e.onclick(cycleFont);
 		} );
