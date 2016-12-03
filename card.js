@@ -1,7 +1,16 @@
-function isPunctuation(str, atIndex) {}
-function isHiragana(str, atIndex) {}
-function isKatakana(str, atIndex) {}
-function isKanji(str, atIndex) {}
+function isPunctuation(str, atIndex) {
+    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION);
+}
+function isHiragana(str, atIndex) {
+    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.HIRAGANA);
+}
+function isKatakana(str, atIndex) {
+    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.KATAKANA);
+}
+function isKanji(str, atIndex) {
+    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A) ||
+           (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
+}
 function isFWRomanOrFWKatakana(str, atIndex) {}
 
 function getStartIndexOfKanjiAt(str, atIndex) {}
@@ -39,7 +48,6 @@ function parseFuriUsingSquareBrackets(str, wordDelimiter) {
         // }
         // kanjiEnd = getEndIndexOfKanjiAt(str, kanjiStart);
         // formattedElements.append($("<li class='unlinked'>" + str.substring(kanjiStart, kanjiEnd) + "</li>"));
-        
     }
     elements.attr("search", searchText);
     return formattedElements;
