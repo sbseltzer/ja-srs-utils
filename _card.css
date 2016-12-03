@@ -1,8 +1,100 @@
-<style>
- .rtk-link {}
- .jisho-link {}
- .parse-furi {}
- .cycle-font {}
-</style>
-<script src="_jquery.min.js"></script>
-<script src="_anki-tools.js"></script>
+
+*,*:before,*:after {
+	box-sizing:border-box;
+}
+
+a {
+	color: purple;
+}
+.furigana {
+	color: green;
+}
+
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,p,blockquote,th,td {
+	margin:0;
+	padding:0;
+}
+.clearfix:before,.clearfix:after {
+	content:" ";
+	display:table
+}
+.clearfix:after {
+	clear:both
+}
+
+.serif {
+	font-family:'Times New Roman', Times, Georgia, serif
+}
+.japanese_gothic {
+	font-family:"HiraKakuPro-W3", "Hiragino Kaku Gothic Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "游ゴシック", YuGothic, "ＭＳ Ｐゴシック", "MS PGothic", "ＭＳ ゴシック", "MS Gothic", sans-serif
+}
+.japanese_mincho {
+	font-family:"HiraMinPro-W3", "Hiragino Mincho Pro W3", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "游明朝", YuMincho, "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", "MS Mincho", serif
+}
+.entry.word {
+	margin:0;
+	padding:1em 0 0 0
+}
+
+.sentences ul {
+	margin:0px;
+}
+.sentences .english {
+	margin:0;
+	font-size:18px
+}
+.sentences ul.japanese li {
+	display:inline-block;
+	font-size:18px
+}
+.sentences .japanese .furigana {
+	display: block;
+	font-size:12px;
+}
+.sentence {
+	padding:0
+}
+.sentence_content {
+	padding:10px 12px
+}
+.sentences_block .sentence {
+	border-bottom:1px solid #eee
+}
+
+
+li {
+	list-style-type:none
+}
+ul {
+	font-size:1rem;
+	line-height:1.6;
+	margin-bottom:1.25rem;
+	list-style-position:outside;
+	font-family:inherit
+}
+ul {
+	margin-left:1.1rem
+}
+
+ul li ul,ul li ol {
+	margin-left:1.25rem;
+	margin-bottom:0
+}
+
+.hidden {
+	display: none
+}
+
+.word_in_sentence {
+	color: green
+}
+.word_in_furigana {
+	color: green
+}
+
+.word_field {
+	font-size: 20px;
+}
+.word_answer {
+	font-size: 20px;
+}
