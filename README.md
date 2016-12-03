@@ -7,6 +7,8 @@ I've started this with Anki in mind, but I hope to port this to other SRS system
 
 Start by cloning or downloading the repository.
 
+#### IMPORTANT: Always close Anki before installing/updating! Not doing so has a risk of corrupting your database! 
+
 ## Anki Installation
 
 Note: These instructions currently assume you are using the default media directory.
