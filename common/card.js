@@ -1,3 +1,6 @@
+function isInUnicodeRange(ch, start, end) {
+    return start <= ch && ch <= end;
+}
 function isPunctuation(str, atIndex) {
     var c = str[atIndex];
     return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION);
@@ -42,33 +45,32 @@ function getEndIndexOfKanjiAt(str, atIndex) {
     return str.length - 1;
 }
 
-function getIndexOfNextOpeningBrace(str, atIndex) {
-    return str.indexOf("[", atIndex);
+function getIndexOfNextOpeningBrace(str, atIndex, braceType) {
+    return str.indexOf(braceType[0], atIndex);
 }
-function getIndexOfNextClosingBrace(str, atIndex) {
-    return str.indexOf("]", atIndex);
+function getIndexOfNextClosingBrace(str, atIndex, braceType) {
+    return str.indexOf(braceType[1], atIndex);
 }
 
 function getIndexOfNextWord(str, atIndex, wordDelimiter) {
     str.indexOf(wordDelimiter, atIndex);
 }
-
-function parseFuriUsingSquareBrackets(str, wordDelimiter) {
-    var elements = $('<ul class="japanese_sentence japanese japanese_gothic clearfix" lang="ja"></ul>');
+function parseTextWithFuri(str, wordDelimiter, braceType) {
+    var elements = $('<p></p>');
     var searchText = "";
     var index = 0;
     var endIndex = str.length;
     while (index < endIndex) {
-        var bracesStart = getIndexOfNextOpeningBrace(str, index);
-        var bracesEnd = getIndexOfNextClosingBrace(str, bracesStart);
+        var bracesStart = getIndexOfNextOpeningBrace(str, index, braceType);
+        var bracesEnd = getIndexOfNextClosingBrace(str, bracesStart, braceType);
         var kanjiStart = getStartIndexOfKanjiAt(str, bracesStart);
         var kanjiEnd = bracesStart - 1;
         searchText += str.substring(index, kanjiEnd);
         index = bracesEnd + 1;
-        var kanjiElement = $("<span class='unlinked'>" + str.substring(kanjiStart, kanjiEnd) + "</span>");
-        var furiElement = $("<span class='furigana'>" + str.substring(kanjiStart, kanjiEnd) + "</span>");
-        var element = $("<li></li>");
-        element.append(kanjiElement).append(furiElement);
+        var kanjiElement = $("<rb>" + str.substring(kanjiStart, kanjiEnd) + "</rb>");
+        var furiElement = $("<rt>" + str.substring(bracesStart + 1, bracesEnd - 1) + "</rt>");
+        var element = $("<ruby></ruby>");
+        element.append(kanjiElement).append("<rp>(</rp>").append(furiElement).append("<rp>)</rp>");
         elements.append(element);
     }
     elements.attr("search", searchText);
@@ -77,7 +79,8 @@ function parseFuriUsingSquareBrackets(str, wordDelimiter) {
 
 $(".parse-furi").each(
     function() {
-        $(this).html(parseFuriUsingSquareBrackets(e.text()));
+        var e = $(this);
+        e.html(parseTextWithFuri(e.text(), "", "[]"));
     });
 
 $(".rtk-link").each(
