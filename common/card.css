@@ -1,6 +1,6 @@
 /* NOTE: Local HTML pages (at least with Firefox) wont allow cross-site references for font downloads. This means the font will need to exist in, and be referenced in the same directory as the HTML that uses it. This means that both the CSS and TTF files will need to be copied to their relevant directory in order to be effective. */
-@font-face { font-family: KanjiStrokeOrders; src: url('StrokeOrder.ttf'); }
-.strokes { font-family: KanjiStrokeOrders; }
+@font-face { font-family: StrokeOrder; src: url('StrokeOrder.ttf'); }
+.strokes { font-family: StrokeOrder; }
 
 *,*:before,*:after {
 	box-sizing:border-box;
