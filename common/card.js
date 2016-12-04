@@ -113,7 +113,7 @@ $(".rtk-link").each(
         var e = $(this);
         var searchText = e.attr("search");
         searchText = (searchText != undefined) ? searchText : e.text();
-        var rtkLink = "http://kanji.koohi.com/study/kanji/" + searchText;
+        var rtkLink = "http://kanji.koohii.com/study/kanji/" + searchText;
         e.wrap("<a href='" + rtkLink + "'></a>");
     });
 
