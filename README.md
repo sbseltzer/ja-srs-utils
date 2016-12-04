@@ -9,7 +9,7 @@ If you haven't installed yet, start by cloning or downloading the repository. If
 
 ## Anki Installation
 
-Note: These instructions currently assume you are using the default media directory.
+#### Note: These instructions currently assume you are using the default Anki userdata directory and only have one user set up for Anki.
 
 #### IMPORTANT: Always close Anki before installing/updating! If you don't, you run the risk of corrupting your database! 
 
