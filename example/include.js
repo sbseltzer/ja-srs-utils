@@ -12,5 +12,8 @@ function loadCardDependencies() {
     cardStyle.href = "../common/card.css";
     document.body.appendChild(cardStyle);
 }
+jqScript.onreadystatechange= function () {
+    if (this.readyState == 'complete') loadCardDependencies();
+}
 jqScript.onload = loadCardDependencies;
 document.body.appendChild(jqScript);
