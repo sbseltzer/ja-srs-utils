@@ -1,27 +1,29 @@
-function isInUnicodeRange(ch, start, end) {
-    return start <= ch && ch <= end;
+function isInUnicodeRange(code, start, end) {
+    return start <= code && code <= end;
 }
 function isPunctuation(str, atIndex) {
-    var c = str[atIndex];
-    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION);
+    var c = str.charCodeAt(atIndex);
+    return isInUnicodeRange(c, 0x3000, 0x303f);
 }
 function isHiragana(str, atIndex) {
-    var c = str[atIndex];
-    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.HIRAGANA);
+    var c = str.charCodeAt(atIndex);
+    return isInUnicodeRange(c, 0x3040, 0x309f);
 }
-
 function isKatakana(str, atIndex) {
-    var c = str[atIndex];
-    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.KATAKANA);
+    var c = str.charCodeAt(atIndex);
+    return isInUnicodeRange(c, 0x30a0, 0x30ff);
+}
+function isFWRomanOrHWKatakana(str, atIndex) {
+    var c = str.charCodeAt(atIndex);
+    return isInUnicodeRange(c, 0xff00, 0xffef);
 }
 function isKanji(str, atIndex) {
-    var c = str[atIndex];
-    return (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A) ||
-           (Character.UnicodeBlock.of(c)==Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B);
+    var c = str.charCodeAt(atIndex);
+    return isInUnicodeRange(c, 0x4e00, 0x9faf);
 }
 
 function getStartIndexOfKanjiAt(str, atIndex) {
-    if  (!isKanji(str[atIndex])) {
+    if  (!isKanji(str, atIndex)) {
         return -1;
     }
     while (atIndex > 0) {
@@ -33,7 +35,7 @@ function getStartIndexOfKanjiAt(str, atIndex) {
     return 0;
 }
 function getEndIndexOfKanjiAt(str, atIndex) {
-    if  (!isKanji(str[atIndex])) {
+    if  (!isKanji(str, atIndex)) {
         return -1;
     }
     while (atIndex < str.length) {
@@ -52,25 +54,40 @@ function getIndexOfNextClosingBrace(str, atIndex, braceType) {
     return str.indexOf(braceType[1], atIndex);
 }
 
-function getIndexOfNextWord(str, atIndex, wordDelimiter) {
-    str.indexOf(wordDelimiter, atIndex);
-}
+// function getIndexOfNextWord(str, atIndex, wordDelimiter) {
+//     str.indexOf(wordDelimiter, atIndex);
+// }
+
 function parseTextWithFuri(str, wordDelimiter, braceType) {
+    console.log(str);
     var elements = $('<p></p>');
     var searchText = "";
     var index = 0;
     var endIndex = str.length;
     while (index < endIndex) {
         var bracesStart = getIndexOfNextOpeningBrace(str, index, braceType);
+        console.log(index, bracesStart);
+        if (bracesStart == -1) {
+            var remainder = str.substring(index);
+            elements.append(remainder);
+            searchText += remainder;
+            break;
+        } else {
+            var remainder = str.substring(index, bracesStart - 1);
+            elements.append(remainder);
+            searchText += remainder;
+        }
         var bracesEnd = getIndexOfNextClosingBrace(str, bracesStart, braceType);
-        var kanjiStart = getStartIndexOfKanjiAt(str, bracesStart);
+        var kanjiStart = getStartIndexOfKanjiAt(str, bracesStart - 1);
         var kanjiEnd = bracesStart - 1;
-        searchText += str.substring(index, kanjiEnd);
         index = bracesEnd + 1;
         var kanjiElement = $("<rb>" + str.substring(kanjiStart, kanjiEnd) + "</rb>");
         var furiElement = $("<rt>" + str.substring(bracesStart + 1, bracesEnd - 1) + "</rt>");
         var element = $("<ruby></ruby>");
-        element.append(kanjiElement).append("<rp>(</rp>").append(furiElement).append("<rp>)</rp>");
+        element.append(kanjiElement);
+        element.append("<rp>(</rp>");
+        element.append(furiElement);
+        element.append("<rp>)</rp>");
         elements.append(element);
     }
     elements.attr("search", searchText);
@@ -80,6 +97,7 @@ function parseTextWithFuri(str, wordDelimiter, braceType) {
 $(".parse-furi").each(
     function() {
         var e = $(this);
+        console.log(e.text());
         e.html(parseTextWithFuri(e.text(), "", "[]"));
     });
 
