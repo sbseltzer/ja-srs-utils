@@ -82,12 +82,12 @@ function parseTextWithFuri(str, wordDelimiter, braceType) {
 
         var bracesEnd = getIndexOfNextClosingBrace(str, bracesStart, braceType);
         var kanjiStart = getStartIndexOfKanjiAt(str, bracesStart - 1);
-        var kanjiEnd = bracesStart - 1;
+        var kanjiEnd = bracesStart;
         console.log("bracesEnd:", bracesEnd, "kanjiStart:", kanjiStart, "kanjiEnd:", kanjiEnd);
         index = bracesEnd + 1;
         var kanjiElement = $("<rb>" + str.substring(kanjiStart, kanjiEnd) + "</rb>");
         searchText += kanjiElement.text();
-        var furiElement = $("<rt>" + str.substring(bracesStart + 1, bracesEnd - 1) + "</rt>");
+        var furiElement = $("<rt>" + str.substring(bracesStart + 1, bracesEnd) + "</rt>");
         var element = $("<ruby></ruby>");
         element.append(kanjiElement);
         element.append("<rp>(</rp>");
