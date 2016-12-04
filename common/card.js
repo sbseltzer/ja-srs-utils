@@ -66,22 +66,27 @@ function parseTextWithFuri(str, wordDelimiter, braceType) {
     var endIndex = str.length;
     while (index < endIndex) {
         var bracesStart = getIndexOfNextOpeningBrace(str, index, braceType);
-        console.log(index, bracesStart);
+        console.log("index:", index, "bracesStart:", bracesStart);
         if (bracesStart == -1) {
             var remainder = str.substring(index);
             elements.append(remainder);
             searchText += remainder;
             break;
-        } else {
-            var remainder = str.substring(index, bracesStart - 1);
-            elements.append(remainder);
-            searchText += remainder;
         }
+
+        // else { // this may overlap with kanjiStart
+        //     var remainder = str.substring(index, bracesStart - 1);
+        //     elements.append(remainder);
+        //     searchText += remainder;
+        // }
+
         var bracesEnd = getIndexOfNextClosingBrace(str, bracesStart, braceType);
         var kanjiStart = getStartIndexOfKanjiAt(str, bracesStart - 1);
         var kanjiEnd = bracesStart - 1;
+        console.log("bracesEnd:", bracesEnd, "kanjiStart:", kanjiStart, "kanjiEnd:", kanjiEnd);
         index = bracesEnd + 1;
         var kanjiElement = $("<rb>" + str.substring(kanjiStart, kanjiEnd) + "</rb>");
+        searchText += kanjiElement.text();
         var furiElement = $("<rt>" + str.substring(bracesStart + 1, bracesEnd - 1) + "</rt>");
         var element = $("<ruby></ruby>");
         element.append(kanjiElement);
