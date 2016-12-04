@@ -126,9 +126,8 @@ $(".jisho-link").each(
 		    e.wrap("<a href='" + jishoLink + "'></a>");
 		});
 
-function cycleFont()
+function cycleFont(e, fontlist)
 {
-		var e = $(this);
 		var prevfont = Number(e.attr("font_index")) % fontlist.length;
 		var curfont = (Number(e.attr("font_index")) + 1) % fontlist.length;
 		e.attr("font_index", curfont);
@@ -141,12 +140,17 @@ $(".cycle-font").each(
 		{
 				var e = $(this);
 				var fontlist = e.attr("font_classes");
+        console.log("fontlist", fontlist);
 				if (fontlist != undefined) {
 						fontlist = fontlist.split(","); 
 				} else {
 						return;
 				}
-				e.attr("curfont", 0);
-        cycleFont(e);
-				e.onclick(cycleFont);
+        console.log("fontlist", fontlist);
+				e.attr("font_index", 0);
+        var cycler = function() {
+            cycleFont(e, fontlist);
+        }
+        cycler();
+				e.click(cycler);
 		} );
