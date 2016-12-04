@@ -1,15 +1,15 @@
 console.log("Including scripts")
 var jqScript = document.createElement("script");
 jqScript.type = "text/javascript";
-jqScript.src = "jquery-3.1.1.slim.min.js";
+jqScript.src = "JQUERY";
 function loadCardDependencies() {
     var cardScript = document.createElement("script");
     cardScript.type = "text/javascript";
-    cardScript.src = "card.js";
+    cardScript.src = "CARD_JS";
     document.body.appendChild(cardScript);
     var cardStyle = document.createElement("link");
     cardStyle.rel = "stylesheet";
-    cardStyle.href = "card.css";
+    cardStyle.href = "CARD_CSS";
     document.body.appendChild(cardStyle);
 }
 jqScript.onreadystatechange= function () {
