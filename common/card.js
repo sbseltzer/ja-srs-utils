@@ -58,9 +58,11 @@ function getIndexOfNextClosingBrace(str, atIndex, braceType) {
 //     str.indexOf(wordDelimiter, atIndex);
 // }
 
-function parseTextWithFuri(str, wordDelimiter, braceType) {
+function parseTextWithFuri(container, wordDelimiter, braceType) {
+    var str = container.text();
     console.log(str);
-    var elements = $('<p></p>');
+    container.html("");
+    var elements = container;
     var searchText = "";
     var index = 0;
     var endIndex = str.length;
@@ -95,28 +97,32 @@ function parseTextWithFuri(str, wordDelimiter, braceType) {
         element.append("<rp>)</rp>");
         elements.append(element);
     }
-    elements.attr("search", searchText);
-    return elements;
+    return searchText;
 }
 
 $(".parse-furi").each(
     function() {
         var e = $(this);
         console.log(e.text());
-        e.html(parseTextWithFuri(e.text(), "", "[]"));
+        var searchText = parseTextWithFuri(e, "", "[]");
+        e.attr("search", searchText);
     });
 
 $(".rtk-link").each(
     function() {
         var e = $(this);
-        var rtkLink = "http://kanji.koohi.com/study/kanji/" + e.attr("kanji");
+        var searchText = e.attr("search");
+        searchText = (searchText != undefined) ? searchText : e.text();
+        var rtkLink = "http://kanji.koohi.com/study/kanji/" + searchText;
         e.wrap("<a href='" + rtkLink + "'></a>");
     });
 
 $(".jisho-link").each(
 		function() {
 		    var e = $(this);
-		    var jishoLink = "http://jisho.org/search/" + e.attr("search");
+	      var searchText = e.attr("search");
+        searchText = (searchText != undefined) ? searchText : e.text();
+	      var jishoLink = "http://jisho.org/search/" + searchText;
 		    e.wrap("<a href='" + jishoLink + "'></a>");
 		});
 
