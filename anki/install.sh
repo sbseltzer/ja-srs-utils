@@ -17,10 +17,17 @@ if [ ! -d "$AnkiDir/$AnkiUser" ]; then
 fi
 echo "Found Anki user directory: $AnkiDir/$AnkiUser"
 AnkiMedia="$AnkiDir/$AnkiUser/collection.media"
-AnkiFilePrefix="$AnkiMedia/_ja-srs-utils."
-cp include.js "${AnkiFilePrefix}.include.js"
+AnkiMedia=".";
+AnkiNamePrefix="_ja-srs-utils";
+AnkiFilePrefix="$AnkiMedia/$AnkiNamePrefix"
 cp ../common/card.js "${AnkiFilePrefix}.card.js"
 cp ../common/card.css "${AnkiFilePrefix}.card.css"
-sed -i -e 's/StrokeOrder.ttf/${AnkiFilePrefix}.StrokeOrder.ttf/g' "${AnkiFilePrefix}.card.css"
+sed -i -e 's/StrokeOrder.ttf/${AnkiNamePrefix}.StrokeOrder.ttf/g' "${AnkiFilePrefix}.card.css"
 cp ../common/StrokeOrder.ttf "${AnkiFilePrefix}.StrokeOrder.ttf"
 cp ../common/jquery-3.1.1.slim.min.js "${AnkiFilePrefix}.jquery-3.1.1.slim.min.js"
+
+cp ../common/include.js .
+sed -i -e "s/JQUERY/${AnkiNamePrefix}.jquery-3.1.1.slim.min.js/g" include.js
+sed -i -e "s/CARD_JS/${AnkiNamePrefix}.card.js/g" include.js
+sed -i -e "s/CARD_CSS/${AnkiNamePrefix}.card.css/g" include.js
+mv include.js "${AnkiFilePrefix}.include.js"
