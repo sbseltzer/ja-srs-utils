@@ -147,7 +147,8 @@ $(".cycle-font").each(
 						return;
 				}
         console.log("fontlist", fontlist);
-				e.attr("font_index", 0);
+        // Set to -1 to ensure the call to cycler() below puts it at index 0.
+				e.attr("font_index", -1);
         var cycler = function() {
             cycleFont(e, fontlist);
         }
