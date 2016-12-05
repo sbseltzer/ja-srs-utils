@@ -28,7 +28,7 @@ AnkiNamePrefix="_ja-srs-utils";
 AnkiFilePrefix="$AnkiMedia/$AnkiNamePrefix"
 cp ../common/card.js "${AnkiFilePrefix}.card.js"
 cp ../common/card.css "${AnkiFilePrefix}.card.css"
-sed -i -e 's/StrokeOrder.ttf/${AnkiNamePrefix}.StrokeOrder.ttf/g' "${AnkiFilePrefix}.card.css"
+sed -i -e "s/StrokeOrder.ttf/${AnkiNamePrefix}.StrokeOrder.ttf/g" "${AnkiFilePrefix}.card.css"
 cp ../common/StrokeOrder.ttf "${AnkiFilePrefix}.StrokeOrder.ttf"
 cp ../common/jquery-3.1.1.slim.min.js "${AnkiFilePrefix}.jquery-3.1.1.slim.min.js"
 
