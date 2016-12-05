@@ -1,7 +1,7 @@
 #!bash
 # Installation script for Anki
-
-AnkiDir="~/Documents/Anki";
+AnkiUser=${1:="User 1"};
+AnkiDir=${2:="~/Documents/Anki"};
 if [ ! -d $AnkiDir ]; then
     TempDocumentsPath=`powershell -Command '[Environment]::GetFolderPath("MyDocuments")'`
     TempDocumentsPath=${TempDocumentsPath/\\/\/}
@@ -11,7 +11,6 @@ echo "Found Anki directory: $AnkiDir"
 if [ ! -d $AnkiDir ]; then
     exit
 fi
-AnkiUser="User 1";
 if [ ! -d "$AnkiDir/$AnkiUser" ]; then
     exit
 fi
