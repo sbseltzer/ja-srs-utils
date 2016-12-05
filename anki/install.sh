@@ -1,22 +1,29 @@
-#!bash
+#!/bin/bash
 # Installation script for Anki
-AnkiUser=${1:="User 1"};
-AnkiDir=${2:="~/Documents/Anki"};
+UserDocs=`cat ~/.config/user-dirs.dirs | grep DOCUMENTS`
+# Try to find Documents dir on Linux
+eval $UserDocs
+UserDocs=$XDG_DOCUMENTS_DIR
+# Fallback for Linux
 if [ ! -d $AnkiDir ]; then
-    TempDocumentsPath=`powershell -Command '[Environment]::GetFolderPath("MyDocuments")'`
-    TempDocumentsPath=${TempDocumentsPath/\\/\/}
-    AnkiDir=$TempDocumentsPath"/Anki"
+    $UserDocs="~/Documents/Anki"
 fi
-echo "Found Anki directory: $AnkiDir"
+# Fallback for Windows
+if [ ! -d $AnkiDir ]; then
+    UserDocs=`powershell -Command '[Environment]::GetFolderPath("MyDocuments")'`
+    UserDocs=${TempDocumentsPath/\\/\/}
+fi
+AnkiUser=${1:="User 1"};
+AnkiDir="$UserDocs/Anki";
 if [ ! -d $AnkiDir ]; then
     exit
 fi
+echo "Found Anki directory: $AnkiDir"
 if [ ! -d "$AnkiDir/$AnkiUser" ]; then
     exit
 fi
 echo "Found Anki user directory: $AnkiDir/$AnkiUser"
 AnkiMedia="$AnkiDir/$AnkiUser/collection.media"
-AnkiMedia=".";
 AnkiNamePrefix="_ja-srs-utils";
 AnkiFilePrefix="$AnkiMedia/$AnkiNamePrefix"
 cp ../common/card.js "${AnkiFilePrefix}.card.js"
