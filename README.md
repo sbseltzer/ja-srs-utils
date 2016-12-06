@@ -23,3 +23,5 @@ Installation instructions will differ from SRS to SRS, but any that support HTML
 ## Updating
 
 If you're updating, either re-download, or pull the latest changes. Then install the same as before to overwrite the old installed content. 
+
+#### WARNING: Updating may require you to modify your cards that use these utilities. If it does break your cards in some way, you can always revert to your previous version of these utilities.
