@@ -4,7 +4,7 @@ Formatting utilities for expressive and interactive Japanese SRS cards. Merge re
 
 Any SRS that's capable of displaying cards with HTML/CSS/Javascript should be suppoted.
 
-The idea is to empower the user to make better SRS cards by making simple HTML tweaks. No scripting required on the user end!
+The goal is to empower the user to make better SRS cards with small HTML tweaks.
 
 ## Philosophy
 
