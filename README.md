@@ -75,6 +75,12 @@ The `<p></p>` tags are arbitrary. They could be anything. If your card already h
 <span class="some-class" use-furigana>{My Sentence}</span>
 ```
 
+If you dont want to use "[]" braces to surround furigana in your field value for a particular card, you can specify your own. For example:
+
+```
+<p use-furigana brace-type="()">{My Sentence}</p>
+```
+
 #### Jisho and RTK Links
 
 [Jisho](https://jisho.org) and [RTK](https://kanji.koohii.com) are excellent resources to link your fields to, so an easy-to-use format has been added to ease linking any field to them.

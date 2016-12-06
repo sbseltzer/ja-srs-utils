@@ -58,8 +58,10 @@ function getIndexOfNextClosingBrace(str, atIndex, braceType) {
 //     str.indexOf(wordDelimiter, atIndex);
 // }
 
-function parseTextWithFuri(container, wordDelimiter, braceType) {
+function parseTextWithFuri(container) {
     var str = container.text();
+    braceType = container.attr("brace-type");
+    braceType = (braceType != undefined) ? braceType : "[]";
     console.log(str);
     container.html("");
     var elements = container;
@@ -104,7 +106,7 @@ $("[use-furigana]").each(
     function() {
         var e = $(this);
         console.log(e.text());
-        var searchText = parseTextWithFuri(e, "", "[]");
+        var searchText = parseTextWithFuri(e);
         e.attr("search", searchText);
     });
 
