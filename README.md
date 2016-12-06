@@ -68,7 +68,15 @@ The above will cycle the font-family between the default font and StrokeOrder.
 
 Furigana is the pronounciation of kanji in a particular context. Having a way to format fields (such as sentences) specifying the furigana of relevant kanji in an aesthetically pleasing format is incredibly convenient.
 
-Fields that use this must be formatted as `kanji[furigana]...` for this to work (i.e. `失[しっ]敗[ぱい]は成[せい]功[こう]の元`).
+Fields that use this must be formatted as `kanji[furigana]...` for this to work.
+
+Example Field: `失[しっ]敗[ぱい]は成[せい]功[こう]の元`
+
+Outcome: 
+
+<ruby>
+失<rt>しっ</rt>敗<rt>ぱい</rt>は成<rt>せい</rt>功<rt>こう</rt>の元
+</ruby>
 
 Let's say your card has a field named `My Sentence` and the card currently looks like the following.
 
@@ -91,10 +99,17 @@ The `<p></p>` tags are arbitrary. They could be anything. If your card already h
 <span class="some-class" use-furigana>{My Sentence}</span>
 ```
 
-If you dont want to use "[]" braces to surround furigana in your field value for a particular card, you can specify your own. For example:
+If you dont want to use "[]" braces to surround furigana in your field value for a particular card, you can specify your own. Here are some examples. 
 
 ```
+<!-- Using parenthesis -->
 <p use-furigana brace-type="()">{My Sentence}</p>
+<!-- Using curly braces -->
+<p use-furigana brace-type="{}">{My Sentence}</p>
+<!-- Using angle brackets -->
+<p use-furigana brace-type="<>">{My Sentence}</p>
+<!-- Using backticks -->
+<p use-furigana brace-type="``">{My Sentence}</p>
 ```
 
 #### Jisho and RTK Links
