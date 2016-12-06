@@ -74,14 +74,14 @@ Furigana is the pronounciation of kanji in a particular context. Having a way to
 
 Fields that use this must be formatted as `kanji[furigana]...` for this to work.
 
-Example Field: `失[しっ]敗[ぱい]は成[せい]功[こう]の元`
+Example Field: `失[しっ]敗[ぱい]は成[せい]功[こう]のもと`
 
 Outcome: 
 
 <ruby>失<rt>しっ</rt></ruby>
 <ruby>敗<rt>ぱい</rt></ruby>は
 <ruby>成<rt>せい</rt></ruby>
-<ruby>功<rt>こう</rt></ruby>の元
+<ruby>功<rt>こう</rt></ruby>のもと
 
 Let's say your card has a field named `My Sentence` and the card currently looks like the following.
 
