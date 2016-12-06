@@ -52,6 +52,8 @@ The above will cycle the font-family between the default font and StrokeOrder.
 
 Furigana is the pronounciation of kanji in a particular context. Having a way to format fields (such as sentences) specifying the furigana of relevant kanji in an aesthetically pleasing format is incredibly convenient.
 
+Fields that use this must be formatted as `kani[furigana]...` for this to work (i.e. `失[しっ]敗[ぱい]は成[せい]功[こう]の元`).
+
 Let's say your card has a field named `My Sentence` and the card currently looks like the following.
 
 ```
