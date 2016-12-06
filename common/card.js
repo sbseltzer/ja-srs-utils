@@ -128,18 +128,17 @@ $(".jisho-link").each(
 
 function cycleFont(e, fontlist)
 {
-		var prevfont = Number(e.attr("font_index")) % fontlist.length;
 		var curfont = (Number(e.attr("font_index")) + 1) % fontlist.length;
 		e.attr("font_index", curfont);
-		e.removeClass(fontlist[prevfont]);
-		e.addClass(fontlist[curfont]);
+		e.css("font-family",fontlist[curfont]);
 }
 
 $(".cycle-font").each(
 		function()
 		{
 				var e = $(this);
-				var fontlist = e.attr("font_classes");
+				var fontlist = e.attr("fonts");
+        fontlist = (fontlist != undefined ? e.css("font-family") + "," : "") + fontlist;
         console.log("fontlist", fontlist);
 				if (fontlist != undefined) {
 						fontlist = fontlist.split(","); 

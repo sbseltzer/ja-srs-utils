@@ -38,15 +38,15 @@ If you're updating, either re-download, or pull the latest changes. Then install
 
 Believe it or not, it's common for different fonts to draw kanji with slightly different strokes and appearances. As such, having a way to cycle between fonts is quite useful, especially when learning to read kanji.
 
-One of the first things I did when customizing my kanji deck was having a way to display stroke order. This project comes with a font that displays stroke orders to save you the trouble of tracking one down and installing it yourself.
+One of the first things I did when customizing my kanji deck was having a way to display stroke order when clicking/tapping on the kanji. This project comes with a font that displays stroke orders to save you the trouble of tracking one down and installing it yourself.
 
 For example:
 
 ```
-<p class="cycle-font" font_classes="serif,strokes">{text:Kanji}</p>
+<p class="cycle-font" fonts="StrokeOrder">{text:Kanji}</p>
 ```
 
-The above will cycle extra classes between serif and strokes.
+The above will cycle the font-family between the default font and StrokeOrder.
 
 #### Furigana Parsing
 
