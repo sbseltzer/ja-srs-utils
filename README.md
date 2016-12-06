@@ -24,12 +24,14 @@ Support is currently aimed at the following platforms.
 1. Anki 
   - Windows (Working)
   - Ubuntu (Working)
+  - Mac (None yet)
   - Android (Untested)
   - iOS (Untested)
   - Web (Untested)
 2. Mnemosyne 
   - Windows (Partly working)
   - Linux (None yet)
+  - Mac (None yet)
   - Android (None yet)
   - iOS (None yet)
   - Web (None yet)
