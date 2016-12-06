@@ -6,11 +6,11 @@
 
 #### IMPORTANT: Always close Anki before installing/updating! If you don't, you run the risk of corrupting your database! 
 
-Start by navigating to the folder of the downloaded/cloned repository. Then navigate to the `anki` folder.
+For this to work in desktop environments, you will need to install the [JS Booster](https://ankiweb.net/shared/info/1280253613) addon for Anki.
 
 ### Linux
 
-Run `install.sh`.
+Run `install.sh "My User Name"` replacing "My User Name" with the actual username you have for Anki.
 
 ### Windows
 
