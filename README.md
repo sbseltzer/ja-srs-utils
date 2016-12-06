@@ -25,3 +25,56 @@ Installation instructions will differ from SRS to SRS, but any that support HTML
 If you're updating, either re-download, or pull the latest changes. Then install the same as before to overwrite the old installed content. 
 
 #### WARNING: Updating may require you to modify your cards that use these utilities. If it does break your cards in some way, you can always revert to your previous version of these utilities.
+
+## Usage
+
+### Introduction
+
+#### Customizing Cards with HTML
+
+### Basic
+
+#### Font Cycling (Stroke Orders)
+
+Believe it or not, it's common for different fonts to draw kanji with slightly different strokes and appearances. As such, having a way to cycle between fonts is quite useful, especially when learning to read kanji.
+
+One of the first things I did when customizing my kanji deck was having a way to display stroke order. This project comes with a font that displays stroke orders to save you the trouble of tracking one down and installing it yourself.
+
+For example:
+
+```
+<p class="cycle-font" font_classes="serif,strokes">{text:Kanji}</p>
+```
+
+The above will cycle extra classes between serif and strokes.
+
+#### Furigana Parsing
+
+Furigana is the pronounciation of kanji in a particular context. Having a way to format fields (such as sentences) specifying the furigana of relevant kanji in an aesthetically pleasing format is incredibly convenient.
+
+Let's say your card has a field named `My Sentence` and the card currently looks like the following.
+
+```
+{My Sentence}
+```
+
+You'll want to make it look something like the following.
+
+```
+<p class="parse-furi">{text:My Sentence}</p>
+```
+
+The `<p></p>` tags are arbitrary. They could be anything. If your card already had your field surrounded by HTML tags, simply add the "parse-furi" class to it as shown above. For example:
+
+```
+<!-- Before: -->
+<span class="some-class">{My Sentence}</span>
+<!-- After: -->
+<span class="some-class parse-furi">{text:My Sentence}</span>
+```
+
+#### Jisho and RTK Links
+
+[Jisho](https://jisho.org) and [RTK](https://kanji.koohii.com) are excellent resources to link your fields to, so an easy-to-use format has been added to ease linking any field to them.
+
+### Advanced
