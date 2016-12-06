@@ -1,8 +1,8 @@
 # Japanese SRS Utilities
 
-Formatting utilities for expressive/interactive Japanese SRS cards. Merge requests are welcome!
+Formatting utilities for expressive and interactive Japanese SRS cards. Merge requests are welcome!
 
-It is primarily written in Javascript and is intended to work any HTML-formatted card. Any SRS that's capable of displaying HTML cards with custom styling and scripting should be suppoted.
+Any SRS that's capable of displaying cards with HTML/CSS/Javascript should be suppoted.
 
 The idea is to empower the user to make better SRS cards by making simple HTML tweaks. No scripting required on the user end!
 
