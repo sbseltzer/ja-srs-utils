@@ -134,21 +134,21 @@ $("[use-fonts]").each(
 				e.click(cycler);
 		} );
 
-$(".rtk-link").each(
+$("[rtk-link]").each(
     function() {
         var e = $(this);
         var searchText = e.attr("search");
         searchText = (searchText != undefined) ? searchText : e.text();
         var rtkLink = "http://kanji.koohii.com/study/kanji/" + searchText;
-        e.wrap("<a href='" + rtkLink + "'></a>");
+        e.wrap("<a href='" + rtkLink + "' class='rtk-link'></a>");
     });
 
-$(".jisho-link").each(
+$("[jisho-link]").each(
 		function() {
 		    var e = $(this);
 	      var searchText = e.attr("search");
         searchText = (searchText != undefined) ? searchText : e.text();
 	      var jishoLink = "http://jisho.org/search/" + searchText;
-		    e.wrap("<a href='" + jishoLink + "'></a>");
+		    e.wrapInner("<a href='" + jishoLink + "' class='jisho-link'></a>");
 		});
 
