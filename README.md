@@ -7,6 +7,7 @@ I've started this with Anki in mind, but I hope to have this supported for other
 ## Philosophy
 
 This project shall aim to conform to the following development philosophies whenever possible:
+
 1. Installation and usage is easy, or at least well-explained, for those with little-to-no experience with programming and card customization.
 2. Card customization is as "drop-in" as possible. This means simple HTML/attribute modification.
 3. Features that depend on field syntax are simple and intuitive.
