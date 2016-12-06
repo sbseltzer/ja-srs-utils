@@ -83,6 +83,6 @@ If you dont want to use "[]" braces to surround furigana in your field value for
 
 #### Jisho and RTK Links
 
-[Jisho](https://jisho.org) and [RTK](https://kanji.koohii.com) are excellent resources to link your fields to, so an easy-to-use format has been added to ease linking any field to them.
+[Jisho](http://jisho.org) and [RTK](http://kanji.koohii.com) are excellent resources to link your fields to, so an easy-to-use format has been added to ease linking any field to them.
 
 ### Advanced
