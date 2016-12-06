@@ -78,9 +78,10 @@ Example Field: `失[しっ]敗[ぱい]は成[せい]功[こう]の元`
 
 Outcome: 
 
-<ruby>
-失<rt>しっ</rt>敗<rt>ぱい</rt>は成<rt>せい</rt>功<rt>こう</rt>の元
-</ruby>
+<ruby>失<rt>しっ</rt></ruby>
+<ruby>敗<rt>ぱい</rt></ruby>は
+<ruby>成<rt>せい</rt></ruby>
+<ruby>功<rt>こう</rt></ruby>の元
 
 Let's say your card has a field named `My Sentence` and the card currently looks like the following.
 
