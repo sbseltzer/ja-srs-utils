@@ -28,7 +28,11 @@ Support is currently aimed at the following platforms.
   - iOS (Untested)
   - Web (Untested)
 2. Mnemosyne 
-  - Not yet supported
+  - Windows (Partly working)
+  - Linux (None yet)
+  - Android (None yet)
+  - iOS (None yet)
+  - Web (None yet)
   
 ## Installation
 
