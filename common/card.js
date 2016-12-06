@@ -78,17 +78,12 @@ function parseTextWithFuri(container) {
             break;
         }
 
-        // else { // this may overlap with kanjiStart
-        //     var remainder = str.substring(index, bracesStart - 1);
-        //     elements.append(remainder);
-        //     searchText += remainder;
-        // }
-
         var bracesEnd = getIndexOfNextClosingBrace(str, bracesStart, braceType);
         var kanjiStart = getStartIndexOfKanjiAt(str, bracesStart - 1);
         var kanjiEnd = bracesStart;
         console.log("bracesEnd:", bracesEnd, "kanjiStart:", kanjiStart, "kanjiEnd:", kanjiEnd);
         index = bracesEnd + 1;
+
         var kanjiElement = $("<rb>" + str.substring(kanjiStart, kanjiEnd) + "</rb>");
         searchText += kanjiElement.text();
         var furiElement = $("<rt>" + str.substring(bracesStart + 1, bracesEnd) + "</rt>");
