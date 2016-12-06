@@ -85,4 +85,14 @@ If you dont want to use "[]" braces to surround furigana in your field value for
 
 [Jisho](http://jisho.org) and [RTK](http://kanji.koohii.com) are excellent resources to link your fields to, so an easy-to-use format has been added to ease linking any field to them.
 
+Jisho example:
+```
+<p jisho-link>{My Sentence}</p>
+```
+
+RTK example:
+```
+<p rtk-link>{My Kanji}</p>
+```
+
 ### Advanced
