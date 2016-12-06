@@ -43,7 +43,7 @@ One of the first things I did when customizing my kanji deck was having a way to
 For example:
 
 ```
-<p class="cycle-font" fonts="StrokeOrder">{text:Kanji}</p>
+<p use-fonts="StrokeOrder">{Kanji}</p>
 ```
 
 The above will cycle the font-family between the default font and StrokeOrder.
@@ -63,16 +63,16 @@ Let's say your card has a field named `My Sentence` and the card currently looks
 You'll want to make it look something like the following.
 
 ```
-<p class="parse-furi">{text:My Sentence}</p>
+<p use-furigana>{My Sentence}</p>
 ```
 
-The `<p></p>` tags are arbitrary. They could be anything. If your card already had your field surrounded by HTML tags, simply add the "parse-furi" class to it as shown above. For example:
+The `<p></p>` tags are arbitrary. They could be anything. If your card already had your field surrounded by HTML tags, simply add the `use-furigana` attribute to it as shown below.
 
 ```
 <!-- Before: -->
 <span class="some-class">{My Sentence}</span>
 <!-- After: -->
-<span class="some-class parse-furi">{text:My Sentence}</span>
+<span class="some-class" use-furigana>{My Sentence}</span>
 ```
 
 #### Jisho and RTK Links

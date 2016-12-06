@@ -100,7 +100,7 @@ function parseTextWithFuri(container, wordDelimiter, braceType) {
     return searchText;
 }
 
-$(".parse-furi").each(
+$("[use-furigana]").each(
     function() {
         var e = $(this);
         console.log(e.text());
@@ -133,11 +133,11 @@ function cycleFont(e, fontlist)
 		e.css("font-family",fontlist[curfont]);
 }
 
-$(".cycle-font").each(
+$("[use-fonts]").each(
 		function()
 		{
 				var e = $(this);
-				var fontlist = e.attr("fonts");
+				var fontlist = e.attr("use-fonts");
         fontlist = (fontlist != undefined ? e.css("font-family") + "," : "") + fontlist;
         console.log("fontlist", fontlist);
 				if (fontlist != undefined) {
