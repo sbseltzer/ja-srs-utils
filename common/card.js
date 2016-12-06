@@ -108,24 +108,6 @@ $("[use-furigana]").each(
         e.attr("search", searchText);
     });
 
-$(".rtk-link").each(
-    function() {
-        var e = $(this);
-        var searchText = e.attr("search");
-        searchText = (searchText != undefined) ? searchText : e.text();
-        var rtkLink = "http://kanji.koohii.com/study/kanji/" + searchText;
-        e.wrap("<a href='" + rtkLink + "'></a>");
-    });
-
-$(".jisho-link").each(
-		function() {
-		    var e = $(this);
-	      var searchText = e.attr("search");
-        searchText = (searchText != undefined) ? searchText : e.text();
-	      var jishoLink = "http://jisho.org/search/" + searchText;
-		    e.wrap("<a href='" + jishoLink + "'></a>");
-		});
-
 function cycleFont(e, fontlist)
 {
 		var curfont = (Number(e.attr("font_index")) + 1) % fontlist.length;
@@ -154,3 +136,22 @@ $("[use-fonts]").each(
         cycler();
 				e.click(cycler);
 		} );
+
+$(".rtk-link").each(
+    function() {
+        var e = $(this);
+        var searchText = e.attr("search");
+        searchText = (searchText != undefined) ? searchText : e.text();
+        var rtkLink = "http://kanji.koohii.com/study/kanji/" + searchText;
+        e.wrap("<a href='" + rtkLink + "'></a>");
+    });
+
+$(".jisho-link").each(
+		function() {
+		    var e = $(this);
+	      var searchText = e.attr("search");
+        searchText = (searchText != undefined) ? searchText : e.text();
+	      var jishoLink = "http://jisho.org/search/" + searchText;
+		    e.wrap("<a href='" + jishoLink + "'></a>");
+		});
+
