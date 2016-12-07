@@ -61,7 +61,7 @@ function getIndexOfNextClosingBrace(str, atIndex, braceType) {
 function parseTextWithFuri(container) {
     var str = container.text();
     braceType = container.attr("brace-type");
-    braceType = (braceType != undefined) ? braceType : "[]";
+    braceType = (braceType != undefined) ? braceType : "()";
     console.log(str);
     container.html("");
     var elements = container;
