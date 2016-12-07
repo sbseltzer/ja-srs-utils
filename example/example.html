@@ -2,18 +2,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <style>
+            p {font-size: 40px };
+            .cloze {color:blue}
+        </style>
     </head>
     <!-- Font Cycling -->
-    <p class="cycle-font" font_classes="serif,strokes,japanese_gothic,japanese_mincho">装神少女まとい</p>
+    <p use-fonts="StrokeOrder">装神少女まとい</p>
     <!-- Jisho.org Link -->
-    <p class="jisho-link">装神少女まとい</p>
+    <p jisho-link>装神少女まとい</p>
     <!-- RTK kanji.koohi.com Link -->
-    <p class="rtk-link">装</p>
+    <p rtk-link>装</p>
     <!-- Furigana Parser -->
-    <p class="parse-furi">山本[やまもと] 明生[あきお] 弁護士[べんごし]</p>
-    <p class="parse-furi">装神[そうしん] 少女[しょうじょ] まとい</p>
+    <p use-furigana brace-type="[]">山本[やまもと] 明生[あきお] 弁護士[べんごし]</p>
+    <p use-furigana brace-type="[]">装神[そうしん] 少女[しょうじょ] まとい</p>
     <!-- Furigana Parser + Jisho.org Link -->
-    <p class="parse-furi jisho-link">装神[そうしん]少女[しょうじょ]まとい</p>
+    <p use-furigana brace-type="[]" jisho-link>装神[そうしん]少女[しょうじょ]まとい</p>
+    <p use-furigana>装神(そうしん)<span class="cloze">少女(しょうじょ)</span>まとい</p>
+    <p use-furigana>装神(そうしん)<span class="cloze">[...]</span>まとい</p>
+    <p use-furigana>装神(そうしん)<span class="cloze">[...](test)</span>まとい</p>
+    <p use-furigana>装神(そうしん)<span class="cloze">[...]</span>(test)まとい</p>
     <!-- Add script that includes relevant files -->
     <script src="test.include.js"></script>
 </html>
