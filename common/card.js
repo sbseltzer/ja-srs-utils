@@ -54,10 +54,6 @@ function getIndexOfNextClosingBrace(str, atIndex, braceType) {
     return str.indexOf(braceType[1], atIndex);
 }
 
-// function getIndexOfNextWord(str, atIndex, wordDelimiter) {
-//     str.indexOf(wordDelimiter, atIndex);
-// }
-
 function parseTextWithFuri(container) {
     var str = container.text();
     braceType = container.attr("brace-type");
