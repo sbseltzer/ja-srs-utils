@@ -99,14 +99,15 @@ function parseTextNodeWithFurigana(textNode, braceType) {
 }
 
 function parseFuriganaMarkup(container) {
-    container.find("*").each(function() {
+    container.contents().each(function() {
         var e = $(this);
         var braceType = container.attr("brace-type");
         braceType = (braceType != undefined) ? braceType : "()";
-        console.log(braceType);
+        console.log("Hit element:", e);
         if (e.nodeType == 3) {
+            console.log("Hit text:", e.text());
             // Text nodes
-        var elements = parseTextNodeWithFurigana(e, braceType);
+            var elements = parseTextNodeWithFurigana(e, braceType);
             e.html(elements);
         }
     });

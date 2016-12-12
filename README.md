@@ -4,7 +4,11 @@ Formatting utilities for expressive and interactive Japanese SRS cards. Merge re
 
 Any SRS that's capable of displaying cards with HTML/CSS/Javascript should be suppoted.
 
-The goal is to empower the user to make better SRS cards with small HTML tweaks.
+The goal is to empower users to make better SRS cards with small HTML tweaks.
+
+## Why Javascript?
+
+There are lots of platform-specific plugins available for SRS applications, many of which require you to use special note types. When I want a new feature in a deck, my philosophy is to make manual changes to note types. This means my previously existing decks can benefit from these features with minimal changes.
 
 ## Philosophy
 

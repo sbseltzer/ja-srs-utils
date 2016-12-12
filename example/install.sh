@@ -1,4 +1,4 @@
-#!bash
+#!/bin/bash
 # Example installation script
 namePrefix="test."
 cp ../common/card.js .
